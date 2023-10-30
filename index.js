@@ -46,7 +46,12 @@ console.log('Comment', comment)
 const index = comments.findIndex(comment => comment.id === 823423)
 
 console.log("Index: ", index);
-// delete this index
+// Delete this index
 comments.splice(index, 1);
+// Delete Redux style
+const newComments = [
+  ...comments.slice(0, index),
+  ...comments.slice(index + 1)
+];
 
-console.table(comments);
+console.table(newComments);
